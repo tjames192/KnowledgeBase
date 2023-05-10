@@ -24,6 +24,7 @@ Invoke-Command -ComputerName $pdc -ScriptBlock { $(repadmin /syncall /Aed).split
 # Sync Azure AD
 Invoke-Command -ComputerName <ADSync> -ScriptBlock { $null=Import-Module 'C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync\ADSync.psd1'; $null=Start-ADSyncSyncCycle -PolicyType delta; start-sleep 45 }
 
+# Create ExchangeOnline Distribution Group
 Connect-ExchangeOnline
 
 write-verbose "Setting variables to create new group ..."
