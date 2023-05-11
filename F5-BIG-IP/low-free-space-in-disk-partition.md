@@ -1,7 +1,5 @@
 # low free space in disk partition
 
-## Description
-
 ## Recommended Actions
 
 Free space in /shared , /var parition(s)
