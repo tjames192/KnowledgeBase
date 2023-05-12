@@ -4,7 +4,7 @@
 ```
 $pdc = [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain().DomainControllers.where({$_.Roles -match 'PdcRole'}).Name
 Invoke-Command -ComputerName $pdc -ScriptBlock { $(repadmin /syncall /Aed).split([System.Environment]::NewLine,[System.StringSplitOptions]::RemoveEmptyEntries) }
-Invoke-Command -ComputerName $pdc ScriptBlock { $(repadmin /replsummary).split([System.Environment]::NewLine,[System.StringSplitOptions]::RemoveEmptyEntries) }
+Invoke-Command -ComputerName $pdc -ScriptBlock { $(repadmin /replsummary).split([System.Environment]::NewLine,[System.StringSplitOptions]::RemoveEmptyEntries) }
 Invoke-Command -ComputerName <ADSync> -ScriptBlock { $null=Import-Module 'C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync\ADSync.psd1'; $null=Start-ADSyncSyncCycle -PolicyType delta; start-sleep 45 }
 ```
 
