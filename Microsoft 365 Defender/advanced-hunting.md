@@ -25,5 +25,11 @@ DeviceNetworkEvents
 | project Timestamp, ActionType, DeviceName, InitiatingProcessAccountName, InitiatingProcessAccountUpn, LocalIP, RemoteIP, LocalPort, RemotePort, RemoteUrl
 ```
 
+
 ## Additional Information
 https://samilamppu.com/2021/11/02/microsoft-defender-for-endpoint-web-content-filtering-test-drive/
+
+## fooUser@domain.onmicrosoft.com - InitiatingProcessAccountUpn
+worth mentioning that the foouser is also present on devices that are Hybrid joined and then enrolled into intune via group policy (Even when set to use user credentials)
+https://epmstuff.wordpress.com/
+
