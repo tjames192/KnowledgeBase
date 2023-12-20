@@ -1,4 +1,5 @@
 shamelessly copy paste
+```
 # set compression attribute for a directory so that
  # newly written files get automatically 
  sudo chattr +c "<dir>"
@@ -41,3 +42,4 @@ https://www.reddit.com/r/linux_gaming/comments/mcfcdz/save_disk_space_for_your_g
     https://help.ubuntu.com/community/btrfs
 
     https://unix.stackexchange.com/questions/563749/how-to-turn-on-compression-for-a-single-file-on-btrfs
+```
