@@ -43,3 +43,20 @@ https://www.reddit.com/r/linux_gaming/comments/mcfcdz/save_disk_space_for_your_g
 
     https://unix.stackexchange.com/questions/563749/how-to-turn-on-compression-for-a-single-file-on-btrfs
 ```
+example
+```
+chattr -R +c .local/share/Steam/steamapps/common
+
+sudo btrfs filesystem defragment -rvf -czstd .local/share/Steam/steamapps/common
+
+du -hs .local/share/Steam/steamapps/common/Team\ Fortress\ 2 
+27G     .local/share/Steam/steamapps/common/Team Fortress 2
+
+sudo compsize .local/share/Steam/steamapps/common                        
+Processed 15192 files, 187591 regular extents (193888 refs), 7901 inline.
+Type       Perc     Disk Usage   Uncompressed Referenced  
+TOTAL       58%       15G          27G          27G       
+none       100%      6.1G         6.1G         6.1G       
+zstd        46%      9.7G          20G          21G       
+
+```
