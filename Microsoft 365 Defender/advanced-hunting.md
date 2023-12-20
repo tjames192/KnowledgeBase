@@ -25,6 +25,13 @@ DeviceNetworkEvents
 | project Timestamp, ActionType, DeviceName, InitiatingProcessAccountName, InitiatingProcessAccountUpn, LocalIP, RemoteIP, LocalPort, RemotePort, RemoteUrl
 ```
 
+```
+DeviceNetworkEvents
+| where RemoteUrl has_any ("domain")
+| extend ParsedFields=parse_json(AdditionalFields)
+| order by Timestamp desc
+| project Timestamp, RemoteUrl, ActionType, DeviceName, InitiatingProcessAccountName, InitiatingProcessAccountUpn, LocalIP, RemoteIP, LocalPort, RemotePort
+```
 
 ## Additional Information
 https://samilamppu.com/2021/11/02/microsoft-defender-for-endpoint-web-content-filtering-test-drive/
