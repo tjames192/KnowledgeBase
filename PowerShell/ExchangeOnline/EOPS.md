@@ -41,3 +41,26 @@ $members | % {add-distributiongroupmember $group.name -Member $_.Name}
 
 Set-DistributionGroup -Identity $group.Identity -EmailAddresses $emailaddresses
 ```
+
+# messsage trace
+do a message trace up to last 90 days.
+
+``` powershell
+$endDate = (Get-Date).Date
+$shortEndDate = $endDate.ToShortDateString()
+$startDate = $endDate.AddDays(-90)
+$shortStartDate = $startDate.ToShortDateString()
+
+# list of email addresses
+$allStaleAddresses = @"
+After_HoursPU@byer.com
+"@
+
+$allStaleAddresses = $allStaleAddresses.split()
+
+$allHistoricalSearch = foreach ($address in $allStaleAddresses) {
+$rAddress = $address
+$rTitle = "HistoricalSearch {0}-{1} {2}" -f $shortStartDate,$shortEndDate,$rAddress.split('@')[0]
+Start-HistoricalSearch -ReportTitle $rTitle -RecipientAddress $rAddress -ReportType MessageTrace -StartDate $startDate -EndDate $endDate -NotifyAddress admin@domain.com
+}
+```
