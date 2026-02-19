@@ -64,3 +64,23 @@ $rTitle = "HistoricalSearch {0}-{1} {2}" -f $shortStartDate,$shortEndDate,$rAddr
 Start-HistoricalSearch -ReportTitle $rTitle -RecipientAddress $rAddress -ReportType MessageTrace -StartDate $startDate -EndDate $endDate -NotifyAddress admin@domain.com
 }
 ```
+
+
+# Mailbox Diagnostic Logs
+## Get-MailboxDiagnosticLogs
+
+``` powershell
+function Get-MailboxDiagnosticLogs {
+    param (
+        $identity
+    )
+    
+    ([xml](Export-MailboxDiagnosticLogs -Identity $identity -ExtendedProperties).MailboxLog).Properties.MailboxTable.property
+}
+
+$mbdiaglog = Get-MailboxDiagnosticLogs -identity "user@domain"
+
+Get-RetentionPolicyTag -Mailbox user@domain
+```
+
+
