@@ -53,7 +53,7 @@ $shortStartDate = $startDate.ToShortDateString()
 
 # list of email addresses
 $allStaleAddresses = @"
-After_HoursPU@byer.com
+email@domain.com
 "@
 
 $allStaleAddresses = $allStaleAddresses.split()
