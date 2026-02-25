@@ -14,7 +14,7 @@ podman pod create -p 11434:11434 -p 3000:8080 --name ollamapod
 # not sharing storage between pods so Z not z
 podman run -d \
 	--pod ollamapod \
-	-v open-webui-data:/app/backend/data:Z \
+	-v ollama-data:/root/.ollama:Z \
 	-e OLLAMA_BASE_URL=http://ollama:11434 \
 	-e NVIDIA_VISIBLE_DEVICES=all \
 	-e NVIDIA_DRIVER_CAPABILITIES=compute,utility \
