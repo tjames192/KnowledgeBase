@@ -15,7 +15,7 @@ podman pod create -p 11434:11434 -p 3000:8080 --name ollamapod
 podman run -d \
 	--pod ollamapod \
 	-v ollama-data:/root/.ollama:Z \
-	-e OLLAMA_BASE_URL=http://ollama:11434 \
+	-e OLLAMA_HOST=0.0.0.0:11434 \
 	-e NVIDIA_VISIBLE_DEVICES=all \
 	-e NVIDIA_DRIVER_CAPABILITIES=compute,utility \
 	--security-opt label=disable \
