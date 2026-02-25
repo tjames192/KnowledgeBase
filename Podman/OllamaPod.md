@@ -51,7 +51,7 @@ podman run -d \
 ```
 podman run -d \
 	--pod ollamapod \
-	-v ~/source/agent0:/a0/usr:Z \
+	-v agent0-data:/a0/usr:Z \
 	--name agent-zero \
 	agent0ai/agent-zero:latest
 ```
