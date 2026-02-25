@@ -68,8 +68,11 @@ podman pod create -p 50080:80 -p 11434:11434 -p 3000:8080 --name ollamapod
 
 ## links
 check access from host.
+
 http://localhost:3000/
+
 http://localhost:11434/
+
 http://localhost:50080/
 
 
