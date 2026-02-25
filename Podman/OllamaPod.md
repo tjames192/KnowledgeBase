@@ -66,6 +66,13 @@ podman pod rm ollamapod
 podman pod create -p 50080:80 -p 11434:11434 -p 3000:8080 --name ollamapod
 ```
 
+## links
+check access from host.
+http://localhost:3000/
+http://localhost:11434/
+http://localhost:50080/
+
+
 ## a gotcha while using pasta networking vs host in podman
 in order for containers to uses localhost resources.
 ```
